@@ -1,26 +1,224 @@
 @import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@source "../containers/";
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-inter: var(--font-inter);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* ===== BASE ===== */
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ===== CONTAINER ===== */
+
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (min-width: 576px) {
+  .container { max-width: 540px; }
+}
+@media (min-width: 768px) {
+  .container { max-width: 720px; }
+}
+@media (min-width: 992px) {
+  .container { max-width: 960px; }
+}
+@media (min-width: 1200px) {
+  .container { max-width: 1140px; }
+}
+@media (min-width: 1400px) {
+  .container { max-width: 1320px; }
+}
+
+/* ===== FADE ===== */
+
+.fade-up {
+  animation: fadeUp 0.8s ease forwards;
+}
+
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.3s; }
+.delay-3 { animation-delay: 0.5s; }
+.delay-4 { animation-delay: 0.7s; }
+.delay-5 { animation-delay: 0.9s; }
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ===== TEXT STYLES ===== */
+
+.name {
+  font-size: 3.5rem;
+  font-weight: 800;
+  background: linear-gradient(to right, #60a5fa, #a855f7, #ec4899);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.typing {
+  font-weight: 600;
+  background: linear-gradient(to right, #60a5fa, #a855f7);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/* ===== CURSOR ===== */
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+.cursor,
+.animate-blink {
+  animation: blink 1s infinite;
+}
+
+/* ===== DESCRIPTION ===== */
+
+.desc {
+  text-align: center;
+  color: #d1d5db;
+  max-width: 600px;
+  line-height: 1.6;
+}
+
+/* ===== BADGE ===== */
+
+.badge {
+  padding: 6px 16px;
+  border: 1px solid #a855f7;
+  border-radius: 999px;
+  background: rgba(0,0,0,0.6);
+  color: white;
+  box-shadow: 0 0 15px rgba(168,85,247,0.6);
+}
+
+/* ===== BUTTON ===== */
+
+.btn-primary {
+  padding: 14px 28px;
+  border-radius: 999px;
+  color: white;
+  background: linear-gradient(to right, #3b82f6, #9333ea);
+  transition: 0.3s;
+  box-shadow: 0 0 10px rgba(99,102,241,0.5);
+}
+
+.btn-primary:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 25px rgba(168,85,247,0.9);
+}
+
+/* ===== SUBTLE GLOW FLOAT ===== */
+
+@keyframes floatGlow {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+.before-glow {
+  animation: floatGlow 6s ease-in-out infinite;
+}
+
+.after-glow {
+  animation: floatGlow 6s ease-in-out infinite reverse;
+}
+
+/* ===================================================== */
+/* ✅ NEW PARTICLE SYSTEM (NO RESTART GLITCH) */
+/* ===================================================== */
+
+/* ========================= */
+/* 🔥 Animated Grid */
+/* ========================= */
+
+.grid-bg {
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background-image: linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: moveGrid 20s linear infinite;
+    z-index: 0;
+
+}
+
+/* Grid animation */
+@keyframes moveGrid {
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(-50px, -50px);
+  }
+}
+
+/* ========================= */
+/* 🔥 CODE LINES */
+/* ========================= */
+
+.code-line {
+  position: absolute;
+  width: 250px;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 240, 255, 0.8),
+    transparent
+  );
+  filter: blur(1px);
+  opacity: 0.6;
+  animation: floatCode 10s linear infinite;
+  z-index: 2;
+}
+
+/* Different positions */
+.cl1 {
+  top: 20%;
+  left: -20%;
+}
+
+.cl2 {
+  top: 40%;
+  left: -30%;
+  animation-delay: 2s;
+}
+
+.cl3 {
+  top: 65%;
+  left: -10%;
+  animation-delay: 4s;
+}
+
+.cl4 {
+  top: 80%;
+  left: -25%;
+  animation-delay: 6s;
+}
+
+/* Animation */
+@keyframes floatCode {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(120vw);
+  }
 }

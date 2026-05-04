@@ -1,6 +1,16 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { Inter } from 'next/font/google'
+import NavBar from "@/components/NavBar";
+import MobileNavBar from "@/components/MobileNavBar";
+
+
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+});
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,9 +35,18 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable}  ${inter.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="bg-[#040807] font-inter">
+        <div className='hidden md:block'>
+          <NavBar />
+        </div>
+        <div className='block md:hidden'>
+          <MobileNavBar />
+        </div>
+        <main>{children}</main>
+
+      </body>
     </html>
   );
 }

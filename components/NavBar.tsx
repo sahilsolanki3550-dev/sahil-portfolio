@@ -18,7 +18,7 @@ const NavBar = () => {
             <div className='container mx-auto flex justify-between items-center '>
                 <div className='flex items-center gap-2 group'>
                     <div className='rounded-full size-14 flex items-center justify-center transition-all duration-300 scale-105 shadow-[0_0_15px_rgba(99,102,241,0.5)]'>
-                        <Image alt='' src={logo}  className='object-contain w-12 transition-all duration-300 '/> 
+                        <Image alt='' src={logo}  className='rounded-full  object-contain w-12 transition-all duration-300 '/> 
                     </div>
                     <div>
                         <h3 className='text-white font-semibold text-xl leading-4 mt-2 tracking-wide'>Sahil Solanki</h3>

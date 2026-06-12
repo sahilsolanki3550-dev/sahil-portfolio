@@ -1,5 +1,5 @@
 'use client'
-import { Briefcase, Home, User } from 'lucide-react'
+import { Briefcase, Code2, FolderKanban, Home, Mail, User } from 'lucide-react'
 import Link from 'next/link'
 import React, { useState } from 'react'
 import { usePathname } from 'next/navigation'
@@ -60,7 +60,7 @@ const NavBar = () => {
                         )}
                     </Link>
                     <Link onClick={() => setActive('#skills')} href="#skills" className={`relative text-sm font-medium hover:text-white rounded-full flex items-center gap-1 px-4 py-2 border  hover:bg-gray-700 transition-all duration-300 ${active === '#skills' ? "border-blue-400 text-white" : "border-transparent text-white/70"}`}>
-                        <Home size={15} className='mt-1' />
+                        <Code2 size={15} className='mt-1' />
                         Skills
                         {/* Active Dot */}
                         {active === '#skills' && (
@@ -69,10 +69,19 @@ const NavBar = () => {
                     </Link>
                     <Link onClick={() => setActive('#projects')}
                         href="#projects" className={` relative text-sm font-medium text-white rounded-full flex items-center gap-1 px-4 py-2 border  hover:bg-gray-700 transition-all duration-300 ${active === '#projects' ? "border-blue-400 text-white" : "border-transparent text-white/70"}`}>
-                        <Home size={15} className='mt-1' />
+                        <FolderKanban   size={15} className='mt-1' />
                         Projects
                         {/* Active Dot */}
                         {active === '#projects' && (
+                            <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-white rounded-full"></span>
+                        )}
+                    </Link>
+                    <Link onClick={() => setActive('#contact')}
+                        href="#contact" className={` relative text-sm font-medium text-white rounded-full flex items-center gap-1 px-4 py-2 border  hover:bg-gray-700 transition-all duration-300 ${active === '#contact' ? "border-blue-400 text-white" : "border-transparent text-white/70"}`}>
+                        <Mail  size={15} className='mt-1' />
+                        Contact
+                        {/* Active Dot */}
+                        {active === '#contact' && (
                             <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-white rounded-full"></span>
                         )}
                     </Link>

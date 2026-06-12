@@ -23,7 +23,7 @@ const contacts = [
 
 export const ContactMe = () => {
   return (
-    <section className='py-20 space-y-15 font-inter'>
+    <section id="contact" className='py-20 space-y-15 font-inter'>
       <SectionHeader title="Let's Connect" description='' />
 
       <div className='container mx-auto flex justify-center gap-10'>

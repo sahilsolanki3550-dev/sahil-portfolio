@@ -5,6 +5,9 @@ import reactIcon from "@/public/Skillsicons/react.svg"
 import naxtjs from "@/public/Skillsicons/nextJs.svg"
 import typescript from "@/public/Skillsicons/typeScript.svg"
 import tailwind from "@/public/Skillsicons/tailwind.svg"
+import nodejs from "@/public/Skillsicons/nodejs.png"
+import express from "@/public/Skillsicons/express.png"
+import mongoDb from "@/public/Skillsicons/mongoDb.png"
 import Image from 'next/image'
 
 const skills = [
@@ -40,6 +43,30 @@ const skills = [
         bg: "bg-fuchsia-500/10",
         glow: "shadow-[0_0_30px_rgba(217,70,239,0.2)]",
     },
+     {
+        title: "Node.js",
+        description: "Utility-First Styling",
+        icon: nodejs,
+        color: "text-fuchsia-400",
+        bg: "bg-fuchsia-500/10",
+        glow: "shadow-[0_0_30px_rgba(217,70,239,0.2)]",
+    },
+     {
+        title: "Express.js",
+        description: "Utility-First Styling",
+        icon: express,
+        color: "text-fuchsia-400",
+        bg: "bg-fuchsia-500/10",
+        glow: "shadow-[0_0_30px_rgba(217,70,239,0.2)]",
+    },
+    {
+        title: "MongoDb",
+        description: "Utility-First Styling",
+        icon: mongoDb,
+        color: "text-fuchsia-400",
+        bg: "bg-fuchsia-500/10",
+        glow: "shadow-[0_0_30px_rgba(217,70,239,0.2)]",
+    },
 ]
 
 const SkillsSection = () => {
@@ -47,8 +74,8 @@ const SkillsSection = () => {
         <section id='skills' className='container mx-auto pt-20 pb-15 space-y-15'>
             <SectionHeader title='My Skills' description='The skills I work with in development' />
 
-            <div className="grid gap-6 grid-cols-2 sm:grid-cols-4 xl:grid-cols-6 ">
-                <div className='hidden xl:block'></div>
+            <div className="grid gap-6 grid-cols-2 sm:grid-cols-4 xl:grid-cols-5 px-20 ">
+                {/* <div className='hidden xl:block'></div> */}
 
                 {skills.map((skill, index) => (
                   <div
@@ -61,10 +88,11 @@ const SkillsSection = () => {
   p-5 rounded-[20px] flex flex-col items-center text-center gap-5`}
 >
 
-                        <div className={`size-13 rounded-full flex items-center justify-center ${skill.bg}`}>
+                        <div className={`size-13 relative rounded-full flex items-center justify-center `}>
                             <Image 
                                 alt={skill.title} 
                                 src={skill.icon} 
+                                fill
                                 className='object-contain w-full h-full'
                             />
                         </div>

@@ -1,5 +1,5 @@
 'use client'
-import { Briefcase, Home, User } from 'lucide-react'
+import { Briefcase, Code2, FolderKanban, Home, User } from 'lucide-react'
 import Link from 'next/link'
 import React from 'react'
 
@@ -67,7 +67,7 @@ const MobileNavBar = () => {
                         active === '#skills' ? 'text-white' : 'text-white/60'
                     }`}
                 >
-                    <Home size={18} />
+                    <Code2 size={18} />
                     <span>Skills</span>
 
                     {active === '#skills' && (
@@ -83,7 +83,7 @@ const MobileNavBar = () => {
                         active === '#projects' ? 'text-white' : 'text-white/60'
                     }`}
                 >
-                    <Home size={18} />
+                    <FolderKanban  size={18} />
                     <span>Projects</span>
 
                     {active === '#projects' && (

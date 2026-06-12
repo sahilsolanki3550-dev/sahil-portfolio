@@ -1,3 +1,4 @@
+'use client'
 import React from 'react'
 import SectionHeader from './common/SectionHeader'
 import Image from 'next/image'
@@ -8,7 +9,7 @@ import Link from 'next/link'
 
 const projects = [
   {
-    name: "AtsPro",
+    name: "AtsPro - Resume Analyzer",
     description: "A web app that analyzes resumes against job descriptions and provides feedback to improve matching score.",
     image: atsPro,
     technologies: ["Next.js", "TypeScript", "Tailwind CSS"],
@@ -16,12 +17,12 @@ const projects = [
     live: "https://ats-pro-indol.vercel.app/"
   },
   {
-    name: "JWT Authentication System",
+    name: "AuthFlow - JWT Authentication System",
     description: "A web app with secure user authentication using JWT, including login, registration, and protected routes.",
     image: jwtAuth,
     technologies: ["React", "Node.js", "Express", "MongoDB", "JWT"],
-    github: "#",
-    live: ""
+    github: "https://github.com/sahilsolanki3550-dev/mern-jwt-authentication",
+    live: "https://mern-jwt-authentication-lrep.vercel.app/"
   },
   {
     name: "Employee Management System",
@@ -29,7 +30,7 @@ const projects = [
     image: ems,
     technologies: ["React", "Node.js", "Express", "MongoDB", "REST API"],
     github: "https://github.com/sahilsolanki3550-dev/ems-mern-crud",
-    live: "#"
+    live: "https://github.com/sahilsolanki3550-dev/ems-mern-crud"
   }
 ];
 
@@ -40,24 +41,24 @@ const ProjectsSection = () => {
 
       <div className='grid grid-cols-1 md:grid-cols-3 gap-6'>
         {projects.map((project, index) => (
-          <Link
-            href={project.live}
-            target='_blank'
+          <div 
+            onClick={() => window.open(project.live, "_blank")}
             key={index}
             className='rounded-2xl overflow-hidden bg-white/5 border border-white/10 
 shadow-[0_0_25px_rgba(255,255,255,0.04)] 
 hover:bg-gradient-to-br hover:from-indigo-500/10 hover:via-transparent hover:to-emerald-500/10
 hover:scale-105 
 hover:shadow-[0_0_35px_rgba(99,102,241,0.25),0_0_60px_rgba(16,185,129,0.2),0_0_90px_rgba(255,255,255,0.06)]
-group transition-all duration-700'
+group transition-all duration-700 cursor-pointer'
           >
 
             {/* Image */}
             <div className='relative h-47 w-full overflow-hidden'>
               <Image 
-                alt='' 
+                alt={project.name}
                 src={project.image} 
                 fill 
+                 sizes="(max-width: 768px) 100vw, 33vw"
                 className='rounded-t-2xl object-cover group-hover:scale-110 transition-all duration-500 ease-in-out' 
               />
             </div>
@@ -101,6 +102,7 @@ group transition-all duration-700'
                 <Link 
                   href={project.github} 
                   target='_blank' 
+                  onClick={(e) => e.stopPropagation()}
                   className="text-sm ml-3 underline underline-offset-4 
                   transition-all duration-300 
                   hover:bg-gradient-to-r hover:from-indigo-400 hover:to-emerald-400 
@@ -112,6 +114,7 @@ group transition-all duration-700'
                 <Link 
                   href={project.live} 
                   target='_blank' 
+                  onClick={(e) => e.stopPropagation()}
                   className="text-sm ml-3 underline underline-offset-4 
                   transition-all duration-300 
                   hover:bg-gradient-to-r hover:from-indigo-400 hover:to-emerald-400 
@@ -123,7 +126,7 @@ group transition-all duration-700'
 
             </div>
 
-          </Link>
+          </div>
         ))}
       </div>
     </section>

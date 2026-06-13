@@ -30,7 +30,7 @@ const projects = [
     image: ems,
     technologies: ["React", "Node.js", "Express", "MongoDB", "REST API"],
     github: "https://github.com/sahilsolanki3550-dev/ems-mern-crud",
-    live: "https://github.com/sahilsolanki3550-dev/ems-mern-crud"
+    live: "https://ems-mern-crud-e5va.vercel.app/"
   }
 ];
 
